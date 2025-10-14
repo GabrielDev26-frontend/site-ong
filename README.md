@@ -66,7 +66,8 @@ Tudo isso com um **layout limpo, intuitivo e responsivo**, que funciona bem tant
 Se tivesse uma ONG de verdade, você poderia entrar em contato com a gente:  
 
 📧 E-mail: contato@acolhepet.org  
-📸 Instagram: [@acolhepet](https://www.instagram.com/acolhepet)  
+📸 Instagram: [@acolhepet](https://www.instagram.com/acolhepet) 
+Visite o site pelo link: https://gabrieldev26-frontend.github.io/site-ong/projetos.html
 
 ---
 

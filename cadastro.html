@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro - ONG Acolhe Pet</title>
+    <link rel="stylesheet" href="estilos.css">
+ </head>
+ <body>
+      <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="noticias.html">Notícias</a></li>
+            </ul>
+        </nav>
+        <!--Cabeçalho com título-->
+        <header>
+            <h1>Cadastro - ONG Acolhe Pet</h1>
+            <img src="Imagens/Imagenscadastro-13-10-2025.png" alt="Cadastro na ONG Acolhe Pet">
+        </header>
+        <!--Formulário de cadastro-->
+        <main>
+            <section id="cadastro">
+                <h2>Formulário de Cadastro</h2>
+                <form action="#" method="post">
+
+                <fieldset>
+                        <legend>Informações Pessoais</legend>
+
+                    <label for="nome">Nome Completo:</label><br>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required><br><br>
+
+                    <label for="email">E-mail:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Digite seu melhor e-mail" required><br><br>
+
+                    <label for="cpf">CPF:</label><br>
+                    <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required><br><br>
+
+                    <label for="telefone">Telefone:</label><br>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone" required><br><br>
+
+                    <label for="data_nascimento">Data de nascimento:</label><br>
+                    <input type="date" id="data_nascimento" name="data_nascimento" required><br><br>
+
+                </fieldset>
+
+                <fieldset>
+                       <legend>Informações de Endereço</legend>
+
+                   <label for="endereco">Endereço:</label><br>
+                    <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" required><br><br>
+
+                    <label for="cep">CEP:</label><br>
+                    <input type="text" id="cep" name="cep" placeholder="Digite seu CEP" pattern="\d{5}-\d{3}" required><br><br>
+
+                    <label for="cidade">Cidade:</label><br>
+                    <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required><br><br>
+
+                    <label for="estado">Estado:</label><br>
+                    <select id="estado" name="estado" required>
+                        <option value="">Selecione seu estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select><br><br>
+
+                </fieldset>
+
+                    <input type="submit" value="Enviar">
+                     
+                </form>
+            </section>
+        </main>
+        <!--Rodapé-->
+        <footer>
+            <p>&copy; 2025 ONG Acolhe Pet - Todos os direitos reservados</p>
+        </footer>
+        <script>
+            // Máscara para o CPF
+            const cpf = document.getElementById('cpf');
+            cpf.addEventListener ('input', () => {
+                let value = cpf.value.replace(/\D/g, '');
+                value =  value.replace(/(\d{3})(\d)/, '$1.$2');
+                value =  value.replace(/(\d{3})(\d)/, '$1.$2');
+                value =  value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                cpf.value = value;
+            });
+
+            // Máscara para o telefone
+            const telefone = document.getElementById('telefone');
+            telefone.addEventListener('input', () => {
+            let value = telefone.value.replace(/\D/g, '');
+            value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+            value = value.replace(/(\d{5})(\d{4})$/, '$1-$2');
+            telefone.value = value;
+    });
+
+            
+            // Máscara para CEP
+            const cep = document.getElementById('cep');
+            cep.addEventListener('input', () => {
+                let value = cep.value.replace(/\D/g, '');
+                value = value.replace(/(\d{5})(\d)/, '$1-$2');
+                cep.value = value;
+            });
+
+
+
+        </script>
+    </body>
+
+</html>

@@ -32,7 +32,8 @@
         <!-- Script para buscar notícias de uma API pública -->
         <script>
         const chaveApi = "080848a5675849da9062f6f38d263244"; // Coloquei minha chave de API aqui
-        const url = `https://newsapi.org/v2/everything?q=animais&language=pt&apiKey=${chaveApi}`;
+        const urlOriginal = `https://newsapi.org/v2/everything?q=animais&language=pt&apiKey=${chaveApi}`;
+        const url = `https://api.allorigins.win/get?url=${encodeURIComponent(urlOriginal)}`;
 
          // Busca as notícias da API
          fetch(url)

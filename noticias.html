@@ -6,9 +6,11 @@
         <title>Notícias - ONG Acolhe Pet</title>
         <link rel="stylesheet" href="estilos.css">
     </head>
-     <body>
-        <nav>
-            <ul>
+    <body>
+         <nav class="navbar">
+            <div class="logo">ONG Acolhe Pet</div>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <ul class="menu" id="menu">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
@@ -36,7 +38,7 @@
         const url = `https://api.allorigins.win/get?url=${encodeURIComponent(urlOriginal)}`;
 
 // Busca as notícias da API
-fetch(url)
+        fetch(url)
         .then(resposta => resposta.json())
         .then(dados => {
     // Converte o conteúdo em JSON
@@ -56,12 +58,20 @@ fetch(url)
         const hr = document.createElement("hr");
         areaNoticias.appendChild(item);
         areaNoticias.appendChild(hr);
-    });
-  })
-  .catch(() => {
-    document.getElementById("noticias").innerHTML = "<p>Erro ao carregar notícias.</p>";
-  });
-</script>
+        });
+        })
+        .catch(() => {
+         document.getElementById("noticias").innerHTML = "<p>Erro ao carregar notícias.</p>";
+        });
+        </script>
+        <script>
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('ativo');
+            });
+        </script>
 
 
     </body>

@@ -7,9 +7,11 @@
         <link rel="stylesheet" href="estilos.css">
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Início</a></li>
+        <nav class="navbar">
+            <div class="logo">ONG Acolhe Pet</div>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Início</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
                 <li><a href="noticias.html">Notícias</a></li>
@@ -34,12 +36,21 @@
             <h2>Contato</h2>
             <p>E-mail: contato@acolhepet.org</p>
             <p>Localização: Rua dos animais, 123 - Bairro Jardim Felino - Curitiba - PR</p>
-            <p>Instagram: <a href="https://www.instagram.com/acolhepet" target="_blank">@acolhepet</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/acolhepetficticio" target="_blank">@acolhepet</a></p>
         </section>
 
         <!--Rodapé-->
         <footer>
             <p>&copy; 2025 ONG Acolhe Pet. Todos os direitos reservados.</p>
         </footer>
+
+        <script>
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('ativo');
+            });
+        </script>
     </body>
 </html>

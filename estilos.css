@@ -108,6 +108,26 @@ section p {
     text-align: justify;
 }
 
+#projetos article {
+    background-color: var(--branco);
+    border: 2px solid var(--azul-claro);
+    border-radius: 12px;
+    padding: var(--esp-3);
+    margin-bottom: var(--esp-3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#projetos article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#projetos h3 {
+    color: var(--azul-principal);
+    margin-bottom: var(--esp-1);
+}
+
 form {
     background: var(--branco);
     padding: var(--esp-3);

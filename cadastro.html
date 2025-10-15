@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="estilos.css">
  </head>
  <body>
-      <nav>
-            <ul>
+       <nav class="navbar">
+            <div class="logo">ONG Acolhe Pet</div>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <ul class="menu" id="menu">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="projetos.html">Projetos</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
@@ -121,7 +123,7 @@
             value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
             value = value.replace(/(\d{5})(\d{4})$/, '$1-$2');
             telefone.value = value;
-    });
+            });
 
             
             // Máscara para CEP
@@ -134,6 +136,14 @@
 
 
 
+        </script>
+         <script>
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('ativo');
+            });
         </script>
     </body>
 

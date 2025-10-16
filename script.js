@@ -18,13 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const cpfInput = document.getElementById('cpf');
-  aplicarMascara(cpfInput, (value) => {
-    value = value.replace(/\D/g, '');
-    value = value.replace(/(\d{3})(\d)/, '$1.$2');
-    value = value.replace(/(\d{3})(\d)/, '$1.$2');
-    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-    return value;
-  });
+
+cpfInput.addEventListener('input', () => {
+  let value = cpfInput.value.replace(/\D/g, ''); // remove tudo que não é número
+  if (value.length > 11) value = value.slice(0, 11); // limita a 11 dígitos
+  value = value.replace(/(\d{3})(\d)/, '$1.$2');
+  value = value.replace(/(\d{3})(\d)/, '$1.$2');
+  value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  cpfInput.value = value;
+});
 
   const telefoneInput = document.getElementById('telefone');
   aplicarMascara(telefoneInput, (value) => {
@@ -34,12 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return value;
   });
 
-  const cepInput = document.getElementById('cep');
-  aplicarMascara(cepInput, (value) => {
-    value = value.replace(/\D/g, '');
-    value = value.replace(/(\d{5})(\d)/, '$1-$2');
-    return value;
-  });
+ const cepInput = document.getElementById('cep');
+
+cepInput.addEventListener('input', () => {
+  let value = cepInput.value.replace(/\D/g, ''); // Remove tudo que não é número
+  if (value.length > 8) value = value.slice(0, 8); // Limita a 8 dígitos
+  value = value.replace(/(\d{5})(\d)/, '$1-$2'); // Aplica o traço
+  cepInput.value = value;
+});
 
   // === VALIDAÇÃO DO FORMULÁRIO ===
   const form = document.querySelector('form');
@@ -70,15 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    if (cpf.length !== 14) {
-      mostrarErro("⚠️ CPF inválido. Use o formato 000.000.000-00.");
-      return;
-    }
+    if (cpf.replace(/\D/g, '').length !== 11) {
+  mostrarErro("⚠️ CPF inválido. Digite 11 números (ex: 000.000.000-00).");
+  return;
+}
 
-    if (!/^\d{5}-\d{3}$/.test(cep)) {
-      mostrarErro("⚠️ CEP inválido. Use o formato 00000-000.");
-      return;
-    }
+    if (cep.replace(/\D/g, '').length !== 8) {
+  mostrarErro("⚠️ CEP inválido. Digite 8 números (ex: 00000-000).");
+  return;
+}
 
     if (telefone.length < 14) {
       mostrarErro("⚠️ Telefone inválido. Use o formato (00) 00000-0000.");

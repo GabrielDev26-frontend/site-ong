@@ -1,16 +1,26 @@
-//MENU HAMGURGUER
+//MENU HAMBURGUER
+// === MENU HAMBÚRGUER ===
 document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.querySelector('menu-toggle');
-  const menu = document.querySelector('menu');
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
 
   if (menuToggle && menu) {
     menuToggle.addEventListener('click', () => {
       menu.classList.toggle('ativo');
     });
+
+    // Fecha o menu automaticamente ao clicar em um link
+    const links = menu.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('ativo');
+      });
+    });
   } else {
     console.warn("⚠️ IDs 'menu-toggle' ou 'menu' não encontrados no HTML.");
   }
 });
+
 
 
 

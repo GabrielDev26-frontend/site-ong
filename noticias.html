@@ -19,7 +19,7 @@
         </nav>
         <!--Cabeçalho com título-->
         <header>
-            <h1>Notícias - ONG Acolhe Pet</h1>
+            <h1>Notícias</h1>
             <p>Acompanhe as últimas notícias e atualizações da nossa ONG.</p>
         </header>
         <!--Seção de notícias-->
@@ -31,48 +31,66 @@
             <p>&copy; 2025 ONG Acolhe Pet. Todos os direitos reservados.</p>
         </footer>
 
-        <!-- Script para buscar notícias de uma API pública -->
-        <script>
-        const chaveApi = "080848a5675849da9062f6f38d263244";
-        const urlOriginal = `https://newsapi.org/v2/everything?q=animais&language=pt&apiKey=${chaveApi}`;
-        const url = `https://api.allorigins.win/get?url=${encodeURIComponent(urlOriginal)}`;
+        <!-- Botão Voltar ao Topo -->
+        <button id="voltar-topo" title="Voltar ao topo">⬆️</button>
+        <!--fim botão voltar ao topo-->
 
-// Busca as notícias da API
-        fetch(url)
-        .then(resposta => resposta.json())
-        .then(dados => {
-    // Converte o conteúdo em JSON
+        <!--Scripts-->
+
+        <script src="js/menuhamburguer.js"></script>
+        <script src="js/botao-topo.js"></script>
+        <script src="js/noticias.js"></script>    
+
+       
+<div id="noticias">Carregando notícias...</div>
+
+<!--Script API noticias-->
+
+<script>
+const chaveApi = "080848a5675849da9062f6f38d263244";
+const urlOriginal = `https://newsapi.org/v2/everything?q=animais&language=pt&apiKey=${chaveApi}`;
+const url = `https://api.allorigins.win/get?url=${encodeURIComponent(urlOriginal)}`;
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const areaNoticias = document.getElementById("noticias");
+    if (!areaNoticias) return;
+
+    try {
+        const resposta = await fetch(url);
+        if (!resposta.ok) throw new Error("Falha na requisição");
+
+        const dados = await resposta.json();
+        if (!dados.contents) throw new Error("Conteúdo vazio");
+
         const conteudo = JSON.parse(dados.contents);
-        const noticias = conteudo.articles.slice(0, 5); // Pega as 5 primeiras notícias
-        const areaNoticias = document.getElementById("noticias");
+        const noticias = conteudo.articles?.slice(0, 5) || [];
 
-    // Exibe as notícias na página
+        areaNoticias.innerHTML = ""; // Limpa antes de adicionar
+
+        if (noticias.length === 0) {
+            areaNoticias.innerHTML = "<p>Nenhuma notícia encontrada.</p>";
+            return;
+        }
+
         noticias.forEach(noticia => {
-        const item = document.createElement("div");
+            const item = document.createElement("div");
             item.innerHTML = `
                 <h3>${noticia.title}</h3>
                 ${noticia.urlToImage ? `<img src="${noticia.urlToImage}" width="300">` : ""}
                 <p>${noticia.description || "Sem descrição disponível."}</p>
                 <a href="${noticia.url}" target="_blank">Ler mais</a>
             `;
-        const hr = document.createElement("hr");
-        areaNoticias.appendChild(item);
-        areaNoticias.appendChild(hr);
+            const hr = document.createElement("hr");
+            areaNoticias.appendChild(item);
+            areaNoticias.appendChild(hr);
         });
-        })
-        .catch(() => {
-         document.getElementById("noticias").innerHTML = "<p>Erro ao carregar notícias.</p>";
-        });
-        </script>
-        <script>
-            const menuToggle = document.getElementById('menu-toggle');
-            const menu = document.getElementById('menu');
 
-            menuToggle.addEventListener('click', () => {
-                menu.classList.toggle('ativo');
-            });
-        </script>
+    } catch (erro) {
+        console.error("Erro ao carregar notícias:", erro);
+        areaNoticias.innerHTML = "<p>Erro ao carregar notícias.</p>";
+    }
+});
+</script>
 
-
-    </body>
+</body>
 </html>

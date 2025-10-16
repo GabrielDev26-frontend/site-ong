@@ -1,5 +1,4 @@
-//MENU HAMBURGUER
-// === MENU HAMBÚRGUER ===
+// === MENU HAMBURGUER ===
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('menu');
@@ -9,22 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
       menu.classList.toggle('ativo');
     });
 
-    // Fecha o menu automaticamente ao clicar em um link
+    // Fecha o menu ao clicar em um link
     const links = menu.querySelectorAll('a');
     links.forEach(link => {
       link.addEventListener('click', () => {
         menu.classList.remove('ativo');
       });
     });
-  } else {
-    console.warn("⚠️ IDs 'menu-toggle' ou 'menu' não encontrados no HTML.");
   }
 });
 
-
-
-
-  // === MÁSCARAS DE CAMPOS ===
+// === MÁSCARAS DE CAMPOS ===
+document.addEventListener('DOMContentLoaded', () => {
   const aplicarMascara = (input, mascaraFn) => {
     if (!input) return;
     input.addEventListener('input', () => {
@@ -32,46 +27,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  // CPF
   const cpfInput = document.getElementById('cpf');
+  if (cpfInput) {
+    cpfInput.addEventListener('input', () => {
+      let value = cpfInput.value.replace(/\D/g, '');
+      if (value.length > 11) value = value.slice(0, 11);
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      cpfInput.value = value;
+    });
+  }
 
-cpfInput.addEventListener('input', () => {
-  let value = cpfInput.value.replace(/\D/g, ''); // remove tudo que não é número
-  if (value.length > 11) value = value.slice(0, 11); // limita a 11 dígitos
-  value = value.replace(/(\d{3})(\d)/, '$1.$2');
-  value = value.replace(/(\d{3})(\d)/, '$1.$2');
-  value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-  cpfInput.value = value;
-});
-
+  // Telefone
   const telefoneInput = document.getElementById('telefone');
   aplicarMascara(telefoneInput, (value) => {
+    if (!value) return '';
     value = value.replace(/\D/g, '');
     value = value.replace(/^(\d{2})(\d)/, '($1) $2');
     value = value.replace(/(\d{5})(\d{4})$/, '$1-$2');
     return value;
   });
 
- // === MÁSCARA AUTOMÁTICA DE CEP ===
-const cepInput = document.getElementById('cep');
+  // CEP
+  const cepInput = document.getElementById('cep');
+  if (cepInput) {
+    cepInput.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 8) value = value.slice(0, 8);
+      if (value.length > 5) value = value.replace(/^(\d{5})(\d{1,3})/, '$1-$2');
+      e.target.value = value;
+    });
+  }
+});
 
-if (cepInput) {
-  cepInput.addEventListener('input', (e) => {
-    let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é número
-    if (value.length > 8) value = value.slice(0, 8); // Limita a 8 dígitos
-
-    // Aplica o formato automaticamente: 00000-000
-    if (value.length > 5) {
-      value = value.replace(/^(\d{5})(\d{1,3})/, '$1-$2');
-    }
-
-    e.target.value = value; // Atualiza o valor formatado no campo
-  });
-}
-
-
-  // === VALIDAÇÃO DO FORMULÁRIO ===
+// === VALIDAÇÃO DO FORMULÁRIO ===
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('form');
   if (!form) return;
+
+  const cpfInput = document.getElementById('cpf');
+  const telefoneInput = document.getElementById('telefone');
+  const cepInput = document.getElementById('cep');
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -99,16 +97,16 @@ if (cepInput) {
     }
 
     if (cpf.replace(/\D/g, '').length !== 11) {
-  mostrarErro("⚠️ CPF inválido. Digite 11 números (ex: 000.000.000-00).");
-  return;
-}
+      mostrarErro("⚠️ CPF inválido. Digite 11 números (ex: 000.000.000-00).");
+      return;
+    }
 
     if (cep.replace(/\D/g, '').length !== 8) {
-  mostrarErro("⚠️ CEP inválido. Digite 8 números (ex: 00000-000).");
-  return;
-}
+      mostrarErro("⚠️ CEP inválido. Digite 8 números (ex: 00000-000).");
+      return;
+    }
 
-    if (telefone.length < 14) {
+    if (telefone.replace(/\D/g, '').length < 11) {
       mostrarErro("⚠️ Telefone inválido. Use o formato (00) 00000-0000.");
       return;
     }
@@ -116,4 +114,4 @@ if (cepInput) {
     alert("✅ Cadastro enviado com sucesso! Obrigado por se cadastrar na ONG Acolhe Pet.");
     form.reset();
   });
-
+});

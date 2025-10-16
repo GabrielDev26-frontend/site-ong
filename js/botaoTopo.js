@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mostrar/esconder o botão ao rolar
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
+    if (window.scrollY > 50) {
       botao.style.display = 'block';
     } else {
       botao.style.display = 'none';

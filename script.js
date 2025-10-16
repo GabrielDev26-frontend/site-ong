@@ -1,13 +1,18 @@
+//MENU HAMGURGUER
 document.addEventListener('DOMContentLoaded', () => {
-  // === MENU HAMBURGUER ===
-  const menuToggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('menu');
+  const menuToggle = document.querySelector('menu-toggle');
+  const menu = document.querySelector('menu');
 
   if (menuToggle && menu) {
     menuToggle.addEventListener('click', () => {
       menu.classList.toggle('ativo');
     });
+  } else {
+    console.warn("⚠️ IDs 'menu-toggle' ou 'menu' não encontrados no HTML.");
   }
+});
+
+
 
   // === MÁSCARAS DE CAMPOS ===
   const aplicarMascara = (input, mascaraFn) => {
@@ -101,4 +106,4 @@ if (cepInput) {
     alert("✅ Cadastro enviado com sucesso! Obrigado por se cadastrar na ONG Acolhe Pet.");
     form.reset();
   });
-});
+

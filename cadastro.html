@@ -105,46 +105,9 @@
         <footer>
             <p>&copy; 2025 ONG Acolhe Pet - Todos os direitos reservados</p>
         </footer>
-        <script>
-            // Máscara para o CPF
-            const cpf = document.getElementById('cpf');
-            cpf.addEventListener ('input', () => {
-                let value = cpf.value.replace(/\D/g, '');
-                value =  value.replace(/(\d{3})(\d)/, '$1.$2');
-                value =  value.replace(/(\d{3})(\d)/, '$1.$2');
-                value =  value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-                cpf.value = value;
-            });
 
-            // Máscara para o telefone
-            const telefone = document.getElementById('telefone');
-            telefone.addEventListener('input', () => {
-            let value = telefone.value.replace(/\D/g, '');
-            value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
-            value = value.replace(/(\d{5})(\d{4})$/, '$1-$2');
-            telefone.value = value;
-            });
-
-            
-            // Máscara para CEP
-            const cep = document.getElementById('cep');
-            cep.addEventListener('input', () => {
-                let value = cep.value.replace(/\D/g, '');
-                value = value.replace(/(\d{5})(\d)/, '$1-$2');
-                cep.value = value;
-            });
-
-
-
-        </script>
-         <script>
-            const menuToggle = document.getElementById('menu-toggle');
-            const menu = document.getElementById('menu');
-
-            menuToggle.addEventListener('click', () => {
-                menu.classList.toggle('ativo');
-            });
-        </script>
+       
+         
         <script src="js/mascaras.js"></script>
         <script src="js/menu.js"></script>
         <script src="js/validacao.js"></script>

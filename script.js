@@ -36,14 +36,23 @@ cpfInput.addEventListener('input', () => {
     return value;
   });
 
- const cepInput = document.getElementById('cep');
+ // === MÁSCARA AUTOMÁTICA DE CEP ===
+const cepInput = document.getElementById('cep');
 
-cepInput.addEventListener('input', () => {
-  let value = cepInput.value.replace(/\D/g, ''); // Remove tudo que não é número
-  if (value.length > 8) value = value.slice(0, 8); // Limita a 8 dígitos
-  value = value.replace(/(\d{5})(\d)/, '$1-$2'); // Aplica o traço
-  cepInput.value = value;
-});
+if (cepInput) {
+  cepInput.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+    if (value.length > 8) value = value.slice(0, 8); // Limita a 8 dígitos
+
+    // Aplica o formato automaticamente: 00000-000
+    if (value.length > 5) {
+      value = value.replace(/^(\d{5})(\d{1,3})/, '$1-$2');
+    }
+
+    e.target.value = value; // Atualiza o valor formatado no campo
+  });
+}
+
 
   // === VALIDAÇÃO DO FORMULÁRIO ===
   const form = document.querySelector('form');

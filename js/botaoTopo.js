@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const botao = document.getElementById('voltar-topo');
   if (!botao) return;
 
-  // Sempre mostrar o botão (não depende do scroll)
-  botao.style.display = 'block';
+  // Mostrar sempre o botão
+  botao.style.display = 'inline-block';
 
   // Rolagem suave ao topo
   botao.addEventListener('click', () => {

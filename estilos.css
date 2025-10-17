@@ -316,3 +316,26 @@ footer {
   padding: 0 20px; /* só um espaçamento horizontal */
   background: rgba(0, 0, 0, 0.1);
 }
+
+/* Container da galeria */
+#projetos .row-galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* espaçamento entre imagens */
+  justify-content: center;
+  max-width: 600px; /* opcional: largura total da galeria */
+  margin: 0 auto; /* centraliza */
+}
+
+/* Cada imagem */
+#projetos .row-galeria img {
+  width: calc(33.333% - 0.33rem); /* 3 imagens por linha */
+  aspect-ratio: 1 / 1;             /* garante quadrado */
+  object-fit: cover;               /* mantém proporção e corta se necessário */
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+#projetos .row-galeria img:hover {
+  transform: scale(1.05);
+}

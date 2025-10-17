@@ -1,21 +1,19 @@
-// === BOTÃO VOLTAR AO TOPO ===
 document.addEventListener('DOMContentLoaded', () => {
   const botao = document.getElementById('voltar-topo');
+  if (!botao) return;
 
-  // Mostrar/esconder o botão ao rolar
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      botao.style.display = 'block';
-    } else {
-      botao.style.display = 'none';
-    }
-  });
+  // Inicializa visibilidade
+  const toggleBotao = () => {
+    botao.style.display = window.scrollY > 100 ? 'block' : 'none';
+  };
 
-  // Rolagem suave ao topo
+  toggleBotao(); // chama ao carregar
+
+  // Ao rolar
+  window.addEventListener('scroll', toggleBotao);
+
+  // Ao clicar, rolagem suave
   botao.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });

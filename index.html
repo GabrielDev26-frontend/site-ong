@@ -1,56 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ONG Acolhe Pet</title>
-        <link rel="stylesheet" href="estilos.css">
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="logo">ONG Acolhe Pet</div>
-            <button class="menu-toggle" id="menu-toggle">☰</button>
-            <ul class="menu" id="menu">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="noticias.html">Notícias</a></li>
-            </ul>
-        </nav>
-        <!--Cabeçalho com título e imagem-->
-        <header id="inicio">
-            <h1>ONG ACOLHE PET</h1>
-            <picture>                
-                <img src="./imagens/inicio-dogs.png" alt="Banner da ONG Acolhe Pet">
-            </picture>
-        </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ONG Acolhe Pet</title>
 
-        <!--Seção sobre a ONG-->
-        <section id="sobre">
-            <h2>Sobre Nós</h2>
-            <p>A ONG Acolhe Pet é uma organização sem fins lucrativos que atua na proteção animal, promovendo resgate, reabilitação e adoção consciente.</p>
-        </section>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-        <!--Seção de contato-->
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>E-mail: contato@acolhepet.org</p>
-            <p>Localização: Rua dos animais, 123 - Bairro Jardim Felino - Curitiba - PR</p>
-            <p>Instagram: <a href="https://www.instagram.com/acolhepetficticio" target="_blank">@acolhepet</a></p>
-        </section>
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="estilos.css">
+  </head>
 
-        <!--Rodapé-->
-        <footer>
-            <p>&copy; 2025 ONG Acolhe Pet. Todos os direitos reservados.</p>
-        </footer>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg" style="background-color: var(--verde-escuro);">
+      <div class="container">
+        <a class="navbar-brand text-white fw-semibold" href="index.html">ONG Acolhe Pet</a>
 
-        <!-- Botão Voltar ao Topo -->
-        <button id="voltar-topo" title="Voltar ao topo">⬆️</button>
-       
+        <!-- Botão do menu hamburguer -->
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menuNav"
+          aria-controls="menuNav"
+          aria-expanded="false"
+          aria-label="Alternar navegação"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!--Scripts-->
-        <script src="js/menuhamburguer.js"></script>
-        <script src="js/botao-topo.js"></script>      
-        
-    </body>
+        <!-- Itens do menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="menuNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white px-3" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white px-3" href="projetos.html">Projetos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white px-3" href="cadastro.html">Cadastro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white px-3" href="noticias.html">Notícias</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== CABEÇALHO ===== -->
+    <header id="inicio" class="text-center my-4">
+      <h1 class="fw-bold">ONG ACOLHE PET</h1>
+      <picture>
+        <img src="./imagens/tucano.jpg" class="img-fluid" alt="Banner da ONG Acolhe Pet">
+      </picture>
+    </header>
+
+    <!-- ===== SEÇÃO SOBRE ===== -->
+    <section id="sobre" class="container my-5">
+      <h2>Sobre Nós</h2>
+      <p>
+        A ONG Acolhe Pet é uma organização sem fins lucrativos que atua na proteção animal,
+        promovendo resgate, reabilitação e adoção consciente.
+      </p>
+    </section>
+
+    <!-- ===== SEÇÃO CONTATO ===== -->
+    <section id="contato" class="container my-5">
+      <h2>Contato</h2>
+      <p><strong>E-mail:</strong> contato@acolhepet.org</p>
+      <p><strong>Localização:</strong> Rua dos Animais, 123 - Jardim Felino - Curitiba - PR</p>
+      <p>
+        <strong>Instagram:</strong>
+        <a href="https://www.instagram.com/acolhepetficticio" target="_blank">@acolhepet</a>
+      </p>
+    </section>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="text-center py-3" style="background-color: var(--verde-escuro); color: white;">
+      <p class="mb-0">&copy; 2025 ONG Acolhe Pet. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- ===== BOTÃO VOLTAR AO TOPO ===== -->
+    <button id="voltar-topo" title="Voltar ao topo">⬆️</button>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="js/menuhamburguer.js"></script>
+    <script src="js/botao-topo.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

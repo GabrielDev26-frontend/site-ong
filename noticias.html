@@ -1,96 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Notícias - ONG Acolhe Pet</title>
-        <link rel="stylesheet" href="estilos.css">
-    </head>
-    <body>
-         <nav class="navbar">
-            <div class="logo">ONG Acolhe Pet</div>
-            <button class="menu-toggle" id="menu-toggle">☰</button>
-            <ul class="menu" id="menu">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="noticias.html">Notícias</a></li>
-            </ul>
-        </nav>
-        <!--Cabeçalho com título-->
-        <header>
-            <h1>Notícias</h1>
-            <p>Acompanhe as últimas notícias e atualizações da nossa ONG.</p>
-        </header>
-        <!--Seção de notícias-->
-        <main>
-            <h2>Últimas Notícias</h2>
-            <div id="noticias"> </div>
-        </main>
-        <footer>
-            <p>&copy; 2025 ONG Acolhe Pet. Todos os direitos reservados.</p>
-        </footer>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notícias - ONG Acolhe Pet</title>
 
-        <!-- Botão Voltar ao Topo -->
-        <button id="voltar-topo" title="Voltar ao topo">⬆️</button>
-        <!--fim botão voltar ao topo-->
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-        <!--Scripts-->
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
 
-        <script src="js/menuhamburguer.js"></script>
-        <script src="js/botaoTopo.js"></script>
-           
+  <body class="bg-light text-dark">
+    <!-- Navbar Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">ONG Acolhe Pet</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menuNav"
+          aria-controls="menuNav"
+          aria-expanded="false"
+          aria-label="Alternar navegação"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-       
-<div id="noticias">Carregando notícias...</div>
+        <div class="collapse navbar-collapse" id="menuNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="projetos.html">Projetos</a></li>
+            <li class="nav-item"><a class="nav-link" href="cadastro.html">Cadastro</a></li>
+            <li class="nav-item"><a class="nav-link active" href="noticias.html">Notícias</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<!--Script API noticias-->
+    <!-- Cabeçalho -->
+    <header class="text-center py-5 bg-secondary bg-opacity-10">
+      <div class="container">
+        <h1 class="fw-bold text-dark mb-3">Notícias</h1>
+        <p class="lead text-muted">
+          Acompanhe as últimas notícias e atualizações da nossa ONG.
+        </p>
+      </div>
+    </header>
 
-<script>
-const chaveApi = "080848a5675849da9062f6f38d263244";
-const urlOriginal = `https://newsapi.org/v2/everything?q=animais&language=pt&apiKey=${chaveApi}`;
-const url = `https://api.allorigins.win/get?url=${encodeURIComponent(urlOriginal)}`;
+    <!-- Conteúdo -->
+    <main class="container my-5">
+      <h2 class="mb-4 text-center fw-semibold">Últimas Notícias</h2>
+      <div id="noticias" class="row g-4 justify-content-center">
+        <p class="text-center text-muted">Carregando notícias...</p>
+      </div>
+    </main>
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const areaNoticias = document.getElementById("noticias");
-    if (!areaNoticias) return;
+    <!-- Rodapé -->
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+      <p class="mb-0">&copy; 2025 ONG Acolhe Pet. Todos os direitos reservados.</p>
+    </footer>
 
-    try {
-        const resposta = await fetch(url);
-        if (!resposta.ok) throw new Error("Falha na requisição");
+    <!-- Botão Voltar ao Topo -->
+    <button
+      id="voltar-topo"
+      class="btn btn-dark position-fixed bottom-0 end-0 m-4 rounded-circle"
+      title="Voltar ao topo"
+    >
+      ⬆️
+    </button>
 
-        const dados = await resposta.json();
-        if (!dados.contents) throw new Error("Conteúdo vazio");
+    <!-- Scripts -->
+    <script src="js/botao-topo.js"></script>
 
-        const conteudo = JSON.parse(dados.contents);
-        const noticias = conteudo.articles?.slice(0, 5) || [];
+    <!-- API de Notícias -->
+    <script>
+      const chaveApi = "080848a5675849da9062f6f38d263244";
+      const urlOriginal = `https://newsapi.org/v2/everything?q=animais&language=pt&apiKey=${chaveApi}`;
+      const url = `https://api.allorigins.win/get?url=${encodeURIComponent(urlOriginal)}`;
 
-        areaNoticias.innerHTML = ""; // Limpa antes de adicionar
+      document.addEventListener("DOMContentLoaded", async () => {
+        const areaNoticias = document.getElementById("noticias");
+        try {
+          const resposta = await fetch(url);
+          if (!resposta.ok) throw new Error("Falha na requisição");
+          const dados = await resposta.json();
+          const conteudo = JSON.parse(dados.contents);
+          const noticias = conteudo.articles?.slice(0, 6) || [];
 
-        if (noticias.length === 0) {
-            areaNoticias.innerHTML = "<p>Nenhuma notícia encontrada.</p>";
+          areaNoticias.innerHTML = "";
+          if (noticias.length === 0) {
+            areaNoticias.innerHTML = "<p class='text-center text-muted'>Nenhuma notícia encontrada.</p>";
             return;
+          }
+
+          noticias.forEach((noticia) => {
+            const col = document.createElement("div");
+            col.className = "col-md-5 col-lg-4";
+            col.innerHTML = `
+              <div class="card h-100 shadow-sm border-0">
+                ${noticia.urlToImage
+                  ? `<img src="${noticia.urlToImage}" class="card-img-top" alt="Imagem da notícia">`
+                  : ""}
+                <div class="card-body">
+                  <h5 class="card-title">${noticia.title}</h5>
+                  <p class="card-text">${noticia.description || "Sem descrição disponível."}</p>
+                  <a href="${noticia.url}" target="_blank" class="btn btn-outline-primary btn-sm">Ler mais</a>
+                </div>
+              </div>`;
+            areaNoticias.appendChild(col);
+          });
+        } catch (erro) {
+          console.error("Erro ao carregar notícias:", erro);
+          areaNoticias.innerHTML = "<p class='text-center text-danger'>Erro ao carregar notícias.</p>";
         }
+      });
+    </script>
 
-        noticias.forEach(noticia => {
-            const item = document.createElement("div");
-            item.innerHTML = `
-                <h3>${noticia.title}</h3>
-                ${noticia.urlToImage ? `<img src="${noticia.urlToImage}" width="300">` : ""}
-                <p>${noticia.description || "Sem descrição disponível."}</p>
-                <a href="${noticia.url}" target="_blank">Ler mais</a>
-            `;
-            const hr = document.createElement("hr");
-            areaNoticias.appendChild(item);
-            areaNoticias.appendChild(hr);
-        });
-
-    } catch (erro) {
-        console.error("Erro ao carregar notícias:", erro);
-        areaNoticias.innerHTML = "<p>Erro ao carregar notícias.</p>";
-    }
-});
-</script>
-
-</body>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

@@ -225,23 +225,21 @@ footer {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: var(--laranja-destaque);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 20px;
+  background: none; /* sem fundo */
+  border: none; /* sem borda */
+  font-size: 3rem; /* aumenta o emoji */
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: 0.3s;
-  display: block; /* sempre visível */
+  display: none; /* será mostrado pelo JS */
+  transform: rotate(0deg); /* controle inicial da rotação */
+  transition: transform 0.3s;
+  z-index: 1000;
 }
 
 #voltar-topo:hover {
-  background-color: var(--amarelo-hover);
-  transform: scale(1.1);
+  transform: rotate(-10deg) translateY(-5px); /* efeito divertido ao passar o mouse */
 }
+
+
 
 /* === RESPONSIVIDADE === */
 @media (max-width: 768px) {

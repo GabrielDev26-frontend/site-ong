@@ -323,15 +323,15 @@ footer {
   flex-wrap: wrap;
   gap: 0.5rem; /* espaçamento entre imagens */
   justify-content: center;
-  max-width: 600px; /* opcional: largura total da galeria */
+  max-width: 600px; 
   margin: 0 auto; /* centraliza */
 }
 
 /* Cada imagem */
 #projetos .row-galeria img {
-  width: calc(33.333% - 0.33rem); /* 3 imagens por linha */
-  aspect-ratio: 1 / 1;             /* garante quadrado */
-  object-fit: cover;               /* mantém proporção e corta se necessário */
+  width: calc(33.333% - 0.33rem); 
+  aspect-ratio: 1 / 1;             
+  object-fit: cover;               
   border-radius: 4px;
   transition: transform 0.3s;
 }
@@ -339,3 +339,49 @@ footer {
 #projetos .row-galeria img:hover {
   transform: scale(1.05);
 }
+
+/* === BREAKPOINT PARA TABLETS GRANDES (1024px) === */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  #projetos .row-galeria img {
+    width: calc(25% - 0.5rem); /* 4 por linha */
+  }
+
+  main, section {
+    padding: 1.5rem;
+  }
+}
+
+/* === Ajuste de tamanho para tablets (1024px) === */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  #projetos .row-galeria img {
+    width: calc(25% - 0.5rem); 
+  }
+
+  main, section {
+    padding: 1.5rem;
+  }
+}
+
+/* ===  Ajuste de tamanho para celulares pequenos (480px) === */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  #projetos .row-galeria img {
+    width: calc(50% - 0.25rem); 
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+

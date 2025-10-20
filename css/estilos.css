@@ -18,8 +18,7 @@
   --verde-claro: #4b8a74;
   --laranja-claro: #f08a24;
 
-  /*Tamnahos de fonte*/
-
+  /* Tamanhos de fonte */
   --fs-1: 0.85rem;
   --fs-2: 1rem;
   --fs-3: 1.25rem;
@@ -93,7 +92,6 @@ body {
 }
 
 /*SUBMENU DROPDOWN*/
-
 .menu li ul{
   display: none;
   position: absolute;
@@ -143,19 +141,22 @@ section h2 {
 }
 
 section p {
-  font-size: 1rem;
+  font-size: var(--fs-2);
   text-align: justify;
   color: var(--texto);
 }
 
-/* === PROJETOS === */
+/* === PROJETOS - CARDS RECONFIGURADOS === */
+#projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--esp-3);
+}
+
 #projetos article {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
-  word-break: normal;
-  hyphens: auto;
+  justify-content: flex-start;
   background-color: var(--branco);
   border: 1px solid var(--cinza-claro);
   border-radius: 12px;
@@ -163,7 +164,7 @@ section p {
   margin-bottom: var(--esp-3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
-
+  word-break: normal;
 }
 
 #projetos article:hover {
@@ -179,17 +180,32 @@ section p {
   text-align: center;
 }
 
-#projetos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--esp-3);
-  align-items: stretch;
-}
-
 #projetos p {
   font-size: var(--fs-2);
   line-height: 1.5;
+  margin-top: var(--esp-1);
   text-align: justify;
+}
+
+/* === GALERIA DE IMAGENS 3x3x3 === */
+#projetos .row-galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#projetos .row-galeria img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+#projetos .row-galeria img:hover {
+  transform: scale(1.05);
 }
 
 /* === FORMULÁRIOS === */
@@ -285,9 +301,7 @@ footer {
   transform: translateY(-5px);
 }
 
-
 /*Alert*/
-
 .alert {
   background: #FFE4B5;
   border-left: 4px solid var(--laranja-destaque);
@@ -299,43 +313,22 @@ footer {
 }
 
 /* === RESPONSIVIDADE === */
-
-/* BREAKPOINT: até 480 px (celulares pequenos) */
 @media (max-width: 480px) {
-  header h1 {
-    font-size: 1.6rem;
-  }
-
-  #projetos .row-galeria img {
-    width: calc(50% - 0.25rem); 
-  }
-
-  footer p {
-    font-size: 0.9rem;
-  }
+  header h1 { font-size: 1.6rem; }
+  #projetos .row-galeria { grid-template-columns: repeat(2, 1fr); }
+  footer p { font-size: 0.9rem; }
 }
 
-/* BREAKPOINT: até 600 px (celulares grandes) */
 @media (max-width: 600px) {
-  header h1 {
-    font-size: 1.8rem;
-  }
-
-  #projetos .row-galeria img {
-    width: calc(50% - 0.25rem); 
-  }
-
-  footer p {
-    font-size: 0.9rem;
-  }
+  header h1 { font-size: 1.8rem; }
+  #projetos .row-galeria { grid-template-columns: repeat(2, 1fr); }
+  footer p { font-size: 0.9rem; }
 }
 
-/* BREAKPOINT: até 768 px (tablets) */
 @media (max-width: 768px) {
   .menu {
     display: none;
     flex-direction: column;
-    grid-template-columns: 1fr;
     background-color: var(--verde-escuro);
     width: 100%;
     position: absolute;
@@ -343,124 +336,39 @@ footer {
     left: 0;
     padding: var(--esp-2) 0;
   }
-
-  .menu.ativo {
-    display: flex;
-  }
-
-  .menu li {
-    text-align: center;
-    margin: var(--esp-1) 0;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
+  .menu.ativo { display: flex; }
+  .menu li { text-align: center; margin: var(--esp-1) 0; }
+  .menu-toggle { display: block; }
 }
 
-/* BREAKPOINT: até 1024px (Notebook) */
 @media (max-width: 1024px) {
-  header h1 {
-    font-size: 2.2rem;
-  }
-
-  #projetos .row-galeria img {
-    width: calc(25% - 0.5rem); /* 4 por linha */
-  }
-
-  main, section {
-    padding: 1.5rem;
-  }
+  header h1 { font-size: 2.2rem; }
+  main, section { padding: 1.5rem; }
 }
-/* BREAKPOINT: até 1200px (Desktops médios) */
+
 @media (max-width: 1200px) {
-  header h1 {
-    font-size: 2.2rem;
-  }
-
-  #projetos .row-galeria img {
-    width: calc(25% - 0.5rem); /* 4 por linha */
-  }
-
-  main, section {
-    padding: 1.5rem;
-  }
+  header h1 { font-size: 2.2rem; }
+  main, section { padding: 1.5rem; }
 }
-
-
 
 /* === AJUSTES PARA O MENU BOOTSTRAP === */
-
-/* Cor do ícone hamburguer */
-.navbar-toggler {
-  border: none;
-  filter: invert(100%);
-}
-
-.navbar-toggler:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Hover dos links */
-.nav-link:hover {
-  color: var(--amarelo-hover) !important;
-  transition: color 0.3s;
-}
-
-/* Ativo */
-.nav-link.active {
-  color: var(--laranja-destaque) !important;
-  font-weight: 600;
-}
-
-/* Ajuste de espaçamento */
-.navbar-nav .nav-link {
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-/* Fundo ao rolar */
-.navbar {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
+.navbar-toggler { border: none; filter: invert(100%); }
+.navbar-toggler:focus { outline: none; box-shadow: none; }
+.nav-link:hover { color: var(--amarelo-hover) !important; transition: color 0.3s; }
+.nav-link.active { color: var(--laranja-destaque) !important; font-weight: 600; }
+.navbar-nav .nav-link { font-weight: 500; font-size: 1rem; }
+.navbar { box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
 
 .hero-projetos .hero-overlay {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centraliza verticalmente */
+  justify-content: center;
   align-items: center;
   text-align: center;
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-  padding: 0 20px; /* só um espaçamento horizontal */
+  padding: 0 20px;
   background: rgba(0, 0, 0, 0.1);
 }
-
-/* Container da galeria */
-#projetos .row-galeria {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem; /* espaçamento entre imagens */
-  justify-content: center;
-  max-width: 600px; 
-  margin: 0 auto; /* centraliza */
-}
-
-/* Cada imagem */
-#projetos .row-galeria img {
-  width: calc(33.333% - 0.33rem); 
-  aspect-ratio: 1 / 1;             
-  object-fit: cover;               
-  border-radius: 4px;
-  transition: transform 0.3s;
-}
-
-#projetos .row-galeria img:hover {
-  transform: scale(1.05);
-}
-
-
-

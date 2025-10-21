@@ -1,27 +1,24 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll("nav a"); // links do menu
-  const conteudo = document.getElementById("conteudo"); // onde vai carregar as páginas
+  const links = document.querySelectorAll("nav a");
+  const conteudo = document.getElementById("conteudo");
 
-  if (!conteudo) return;
+  async function carregarPagina(url) {
+    const resposta = await fetch(url);
+    const texto = await resposta.text();
+
+    // Cria um elemento temporário para extrair só o conteúdo da <main>
+    const temp = document.createElement("div");
+    temp.innerHTML = texto;
+
+    const novoConteudo = temp.querySelector("main");
+    conteudo.innerHTML = novoConteudo ? novoConteudo.innerHTML : "Erro ao carregar conteúdo.";
+  }
 
   links.forEach(link => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      const pagina = link.getAttribute("href");
-
-      fetch(pagina)
-        .then(resp => {
-          if (!resp.ok) throw new Error("Erro ao carregar página");
-          return resp.text();
-        })
-        .then(html => {
-          conteudo.innerHTML = html;
-          window.scrollTo(0, 0); // volta pro topo
-        })
-        .catch(() => {
-          conteudo.innerHTML = "<p>Erro ao carregar o conteúdo.</p>";
-        });
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const url = e.target.getAttribute("href");
+      carregarPagina(url);
     });
   });
 });

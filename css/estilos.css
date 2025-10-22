@@ -241,7 +241,7 @@ input[type="submit"]:hover {
   color: var(--verde-escuro);
 }
 
-/* === BOTÃO COM EFEITO SHINE === */
+/* === BOTÃO COM TRANSITION SHINE === */
 .btn-shine {
   position: relative;
   overflow: hidden;
@@ -251,6 +251,10 @@ input[type="submit"]:hover {
   border-radius: 6px;
   font-weight: 600;
   transition: background-color 0.3s;
+  width: 30%;
+  max-width: 300px;
+
+
 }
 
 .btn-shine::before {

@@ -1,9 +1,10 @@
-window.addEventListener("hashchange", carregarPagina);
-window.addEventListener("load", carregarPagina);
-
 function carregarPagina() {
-  let caminho = window.location.hash || "#/inicio"; // muda o padrão pra /inicio
+  let caminho = window.location.hash || "#/inicio";
   let pagina = caminho.replace("#/", "");
+
+  // Se for a home, não carrega nada (usa o conteúdo do index)
+  if (pagina === "inicio") return;
+
   let arquivo = pagina + ".html";
 
   fetch(arquivo)
@@ -19,14 +20,4 @@ function carregarPagina() {
       document.getElementById("conteudo").innerHTML =
         "<h2>Ops! Página não encontrada.</h2>";
     });
-}
-
-function corrigirImagens() {
-  const imgs = document.querySelectorAll("#conteudo img");
-  imgs.forEach(img => {
-    const src = img.getAttribute("src");
-    if (src && !src.startsWith("imagens/") && !src.startsWith("http")) {
-      img.src = "imagens/" + src;
-    }
-  });
 }

@@ -1,47 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const conteudo = document.getElementById("conteudo");
+const paginas = {
+  inicio: "index.html",
+  projetos: "projetos.html",
+  cadastro: "cadastro.html",
+  noticias: "noticias.html"
+};
 
-  function carregarPagina() {
-    let caminho = window.location.hash || "#/inicio";
-    let pagina = caminho.replace("#/", "");
+async function carregarPagina() {
+  const hash = window.location.hash.replace("#/", "") || "inicio";
+  const arquivo = paginas[hash] || paginas["inicio"];
+  const conteudoMain = document.getElementById("conteudo");
+  if (!conteudoMain) return;
 
-    if (pagina === "inicio") {
-      // Home: mantém o conteúdo do header fixo
-      conteudo.innerHTML = `
-        <section class="container my-5">
-          <h2 class="text-center fw-semibold">Seja bem-vindo!</h2>
-          <p class="text-center">Explore nossos projetos e notícias sobre animais.</p>
-        </section>
-      `;
-      return;
-    }
-
-    let arquivo = pagina + ".html";
-
-    fetch(arquivo)
-      .then(res => {
-        if (!res.ok) throw new Error("Página não encontrada");
-        return res.text();
-      })
-      .then(html => {
-        // Cria uma div temporária para manipular o HTML
-        const tempDiv = document.createElement("div");
-        tempDiv.innerHTML = html;
-
-        // Pega apenas o conteúdo dentro de <main>
-        const mainDaPagina = tempDiv.querySelector("main");
-        if (mainDaPagina) {
-          conteudo.innerHTML = mainDaPagina.innerHTML;
-        } else {
-          conteudo.innerHTML = "<p class='text-center text-danger'>Conteúdo não encontrado.</p>";
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        conteudo.innerHTML = "<h2 class='text-center text-danger'>Ops! Página não encontrada.</h2>";
-      });
+  try {
+    const resposta = await fetch(arquivo);
+    if (!resposta.ok) throw new Error("Erro ao carregar página");
+    const html = await resposta.text();
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html;
+    const mainCarregado = tempDiv.querySelector("main");
+    conteudoMain.innerHTML = mainCarregado ? mainCarregado.innerHTML : "<p>Página sem conteúdo principal.</p>";
+  } catch (erro) {
+    console.error(erro);
+    conteudoMain.innerHTML = "<p>Erro ao carregar a página.</p>";
   }
+}
 
-  window.addEventListener("hashchange", carregarPagina);
+function interceptarLinks() {
+  const links = document.querySelectorAll('a[href^="#/"]');
+  links.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.hash = link.getAttribute("href");
+    });
+  });
+}
+
+window.addEventListener("hashchange", carregarPagina);
+document.addEventListener("DOMContentLoaded", () => {
+  interceptarLinks();
   carregarPagina();
 });

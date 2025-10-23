@@ -17,10 +17,16 @@ async function carregarPagina() {
     const html = await resposta.text();
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = html;
+
     const mainCarregado = tempDiv.querySelector("main");
-    conteudoMain.innerHTML = mainCarregado ? mainCarregado.innerHTML : "<p>Página sem conteúdo principal.</p>";
+    if (mainCarregado) {
+      conteudoMain.innerHTML = mainCarregado.innerHTML;
+    } else {
+      conteudoMain.innerHTML = "<p>Página sem conteúdo principal.</p>";
+    }
+
+    interceptarLinks(); // reativa os links sempre que muda de página
   } catch (erro) {
-    console.error(erro);
     conteudoMain.innerHTML = "<p>Erro ao carregar a página.</p>";
   }
 }
@@ -28,10 +34,10 @@ async function carregarPagina() {
 function interceptarLinks() {
   const links = document.querySelectorAll('a[href^="#/"]');
   links.forEach(link => {
-    link.addEventListener("click", (e) => {
+    link.onclick = (e) => {
       e.preventDefault();
       window.location.hash = link.getAttribute("href");
-    });
+    };
   });
 }
 

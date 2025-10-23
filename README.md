@@ -79,7 +79,5 @@ Se fosse uma ONG real, poderíamos nos conectar por aqui:
 
 🌐 Acesse o site: https://gabrieldev26-frontend.github.io/site-ong/index.html
 
-🔗 Visitar ONG Acolhe Pet
-
 💛 Muito obrigado por visitar nosso projeto!
 Esperamos que este site inspire você a se envolver e ajudar os animais. 🐶🐱🐢🐦

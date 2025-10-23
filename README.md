@@ -1,76 +1,85 @@
- 🐾 ONG Acolhe Pet
+🐾 ONG Acolhe Pet
 
-Olá! Seja bem-vindo ao site da **ONG Acolhe Pet**. 💚  
-Este é um projeto acadêmico, mas criado com muito carinho para mostrar como uma ONG fictícia poderia ajudar animais, promover resgates e incentivar a adoção consciente.  
+Seja bem-vindo ao site da ONG Acolhe Pet 💚
+Este é um projeto acadêmico, criado com muito carinho para mostrar como uma ONG fictícia poderia ajudar animais, promover resgates e incentivar a adoção consciente.
 
----
+🌟 O que você vai encontrar aqui
 
- 🌟 O que você vai encontrar aqui
+Nosso site foi pensado para que qualquer pessoa possa:
 
-Nosso site foi pensado para que qualquer pessoa possa:  
+🐶 Conhecer a ONG e entender nossa missão.
 
-- Conhecer a ONG e entender nossa missão.  
-- Descobrir os projetos sociais e como se voluntariar ou doar.  
-- Se cadastrar como voluntário de forma prática e segura.  
-- Acompanhar as últimas notícias sobre animais e cuidados.
+💚 Descobrir os projetos sociais e como se voluntariar ou doar.
 
-Tudo isso com um **layout limpo, intuitivo e responsivo**, que funciona bem tanto no computador quanto no celular. 📱💻
+📝 Cadastrar-se como voluntário de forma prática e segura.
 
----
+📰 Acompanhar as últimas notícias sobre animais e cuidados.
 
- 📄 Páginas do site
+Tudo isso com um layout limpo, intuitivo e responsivo, que funciona bem tanto no computador quanto no celular. 📱💻
 
-- **Início** – Saiba quem somos, o que fazemos e como nos encontrar.  
-- **Projetos** – Conheça os projetos que fazem a diferença na vida dos animais.  
-- **Cadastro** – Um formulário simples e interativo para você se juntar a nós.  
-- **Notícias** – Fique por dentro das novidades e dicas sobre proteção animal.  
+📄 Páginas do site
 
-> Cada página foi pensada para ser fácil de navegar, com informações claras e imagens que ajudam a contar nossa história.
+Início – Saiba quem somos, o que fazemos e como nos encontrar.
 
----
+Projetos – Conheça os projetos que fazem a diferença na vida dos animais.
 
- 🖼️ Recursos visuais
+Cadastro – Um formulário simples e interativo para você se juntar a nós.
 
-- Imagens otimizadas e leves, para carregar rápido sem perder qualidade.  
-- Uso do `<picture>` para suportar diferentes formatos e garantir compatibilidade.  
-- Banner, fotos de projetos e formulário ilustrativo, todos cuidadosamente escolhidos.  
+Notícias – Fique por dentro das novidades e dicas sobre proteção animal.
 
----
+Cada página foi pensada para ser fácil de navegar, com informações claras e imagens que ajudam a contar nossa história.
 
- 🚀 Funcionalidades que você vai notar
+🖼️ Recursos visuais
 
-- Menu simples para navegar entre as páginas.  
-- Formulário com validação e máscaras de input (CPF, telefone e CEP).  
-- Notícias atualizadas de forma dinâmica (via API ou JSON local).  
-- Layout acolhedor e fácil de ler, pensado para engajar visitantes.
+Imagens otimizadas e leves, para carregamento rápido sem perder qualidade.
 
----
+Uso de <picture> para suportar diferentes formatos e garantir compatibilidade.
 
-2. Abra o arquivo `index.html` no seu navegador.  
-3. Clique no menu superior para visitar cada página e explorar os conteúdos.  
+Banner, fotos de projetos e formulário ilustrativo, todos cuidadosamente escolhidos.
 
-> Para a página de notícias, se preferir, você pode usar um arquivo JSON local com notícias de exemplo.  
+🚀 Funcionalidades e Interatividade
 
----
+✅ SPA (Single Page Application) em JavaScript puro, que carrega somente o conteúdo principal de cada página — deixando o site mais rápido e fluido.
 
- 🎨 Tecnologias usadas
+🧭 Menu de navegação simples e funcional, com atualização via hash.
 
-- **HTML5** – Para estruturar o conteúdo de forma semântica.  
-- **CSS3** – Para deixar o site bonito e responsivo.  
-- **JavaScript** – Para máscaras de input e exibição de notícias dinâmicas.  
+🧾 Formulário com validação e máscaras de entrada (CPF, telefone e CEP).
 
----
+📰 Notícias dinâmicas (via API ou JSON local).
 
- 💌 Contato
+💅 Design responsivo com Bootstrap 5, garantindo boa visualização em qualquer dispositivo.
 
-Se tivesse uma ONG de verdade, você poderia entrar em contato com a gente:  
+🧩 Como usar
 
-📧 E-mail: contato@acolhepet.org  
-📸 Instagram: [@acolhepet](https://www.instagram.com/acolhepet) 
+Abra o arquivo index.html no seu navegador.
 
+Use o menu superior para navegar entre as páginas (SPA ativa automaticamente).
 
-Visite o site pelo link: https://gabrieldev26-frontend.github.io/site-ong/projetos.html
+Explore os projetos, cadastre-se e leia as notícias!
 
----
+A navegação é feita sem recarregar a página inteira — apenas o conteúdo principal muda. 🚀
 
-Muito obrigado por visitar nosso projeto! Esperamos que este site inspire você a se envolver e ajudar os animais. 🐶🐱💛
+🎨 Tecnologias utilizadas
+
+HTML5 – Estrutura semântica e acessível.
+
+CSS3 – Layout responsivo e estilização moderna.
+
+Bootstrap 5 – Componentes e grid flexível.
+
+JavaScript (SPA) – Interatividade e carregamento dinâmico de páginas.
+
+💌 Contato
+
+Se fosse uma ONG real, poderíamos nos conectar por aqui:
+
+📧 E-mail: contato@acolhepet.org
+
+📸 Instagram: @acolhepet
+
+🌐 Acesse o site: https://gabrieldev26-frontend.github.io/site-ong/index.html
+
+🔗 Visitar ONG Acolhe Pet
+
+💛 Muito obrigado por visitar nosso projeto!
+Esperamos que este site inspire você a se envolver e ajudar os animais. 🐶🐱🐢🐦

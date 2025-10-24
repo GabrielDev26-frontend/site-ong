@@ -308,8 +308,9 @@ footer {
   margin-top: var(--esp-4);
 }
 
-/* === BOTÃO DECORATIVO DE PATINHA === */
+/* === BOTÃO DE VOLTAR AO TOPO === */
 #voltar-topo {
+  display: none;
   position: fixed;
   bottom: 20px;
   right: 20px;

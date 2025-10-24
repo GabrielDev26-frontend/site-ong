@@ -84,11 +84,12 @@ body {
   color: var(--branco);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.2s;
 }
 
 .menu li a:hover {
   color: var(--amarelo-hover);
+  transform: scale(1.05);
 }
 
 /*SUBMENU DROPDOWN*/
@@ -182,11 +183,13 @@ section p {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 4px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
 }
 
 #projetos .row-galeria img:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.1);
 }
 
 /* === FORMULÁRIOS === */
@@ -396,3 +399,22 @@ footer {
   padding: 0 20px;
   background: rgba(0, 0, 0, 0.1);
 }
+
+/* === EFEITO HOVER PADRÃO EM BOTÕES === */
+button,
+input[type="submit"],
+.btn-shine {
+  transition: all 0.3s ease;
+}
+
+button:hover,
+input[type="submit"]:hover,
+.btn-shine:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+

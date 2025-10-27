@@ -311,21 +311,31 @@ footer {
   margin-top: var(--esp-4);
 }
 
-/* === BOTÃO DECORATIVO DE PATINHA === */
-#voltar-topo {
+
+/* Botão Voltar ao Topo */
+#voltar-topo, 
+a[href="#topo"] {
   position: fixed;
   bottom: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 3rem;
+  right: 25px;
+  font-size: 4rem;         /* Tamanho da patinha */
+  background: none;        /* Remove fundo */
+  border: none;            /* Remove borda */
+  color: var(--verde-escuro); /* Cor das patinhas */
   cursor: pointer;
-  z-index: 1000;
-  transition: transform 0.2s;
+  text-decoration: none;
+  transition: transform 0.3s ease;
 }
 
-#voltar-topo:hover {
-  transform: translateY(-5px);
+#voltar-topo:hover,
+a[href="#topo"]:hover {
+  transform: scale(1.2);   
+}
+
+
+/* Scroll suave para toda a página */
+html {
+  scroll-behavior: smooth;
 }
 
 /*Alert*/

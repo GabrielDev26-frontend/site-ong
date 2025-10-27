@@ -1,65 +1,61 @@
 🐾 ONG Acolhe Pet
 
-Seja bem-vindo ao site da ONG Acolhe Pet 💚
-Este é um projeto acadêmico, criado com muito carinho para mostrar como uma ONG fictícia poderia ajudar animais, promover resgates e incentivar a adoção consciente.
+Bem-vindo ao site da ONG Acolhe Pet 💚! Este é um projeto acadêmico criado para mostrar como uma ONG fictícia poderia ajudar animais, promover resgates e incentivar a adoção consciente.
 
-🌟 O que você vai encontrar aqui
+🌟 Objetivo do Projeto
 
 Nosso site foi pensado para que qualquer pessoa possa:
 
 🐶 Conhecer a ONG e entender nossa missão.
 
-💚 Descobrir os projetos sociais e como se voluntariar ou doar.
+💚 Descobrir projetos sociais e formas de se voluntariar ou doar.
 
 📝 Cadastrar-se como voluntário de forma prática e segura.
 
-📰 Acompanhar as últimas notícias sobre animais e cuidados.
+📰 Acompanhar notícias e dicas sobre cuidados com animais.
 
-Tudo isso com um layout limpo, intuitivo e responsivo, que funciona bem tanto no computador quanto no celular. 📱💻
+Tudo isso em um layout limpo, intuitivo e responsivo, funcionando perfeitamente em computadores e dispositivos móveis. 📱💻
 
-📄 Páginas do site
+📄 Estrutura do Site
+Página	Conteúdo
+Início	Informações sobre quem somos, o que fazemos e como nos encontrar.
+Projetos	Conheça os projetos que fazem a diferença na vida dos animais.
+Cadastro	Formulário interativo para voluntariado e registro de usuários.
+Notícias	Últimas novidades, dicas e notícias sobre proteção animal.
 
-Início – Saiba quem somos, o que fazemos e como nos encontrar.
+Cada página foi planejada para ser fácil de navegar, com informações claras e imagens ilustrativas.
 
-Projetos – Conheça os projetos que fazem a diferença na vida dos animais.
+🖼️ Recursos Visuais
 
-Cadastro – Um formulário simples e interativo para você se juntar a nós.
+Imagens otimizadas e leves, garantindo carregamento rápido.
 
-Notícias – Fique por dentro das novidades e dicas sobre proteção animal.
+Suporte a diferentes formatos e compatibilidade entre navegadores.
 
-Cada página foi pensada para ser fácil de navegar, com informações claras e imagens que ajudam a contar nossa história.
-
-🖼️ Recursos visuais
-
-Imagens otimizadas e leves, para carregamento rápido sem perder qualidade.
-
-Uso de <picture> para suportar diferentes formatos e garantir compatibilidade.
-
-Banner, fotos de projetos e formulário ilustrativo, todos cuidadosamente escolhidos.
+Banner, fotos de projetos e formulários ilustrativos cuidadosamente selecionados.
 
 🚀 Funcionalidades e Interatividade
 
-✅ SPA (Single Page Application) em JavaScript puro, que carrega somente o conteúdo principal de cada página — deixando o site mais rápido e fluido.
+✅ SPA (Single Page Application) em JavaScript puro — apenas o conteúdo principal muda, tornando o site rápido e fluido.
 
-🧭 Menu de navegação simples e funcional, com atualização via hash.
+🧭 Menu de navegação simples, com atualização via hash.
 
 🧾 Formulário com validação e máscaras de entrada (CPF, telefone e CEP).
 
 📰 Notícias dinâmicas (via API ou JSON local).
 
-💅 Design responsivo com Bootstrap 5, garantindo boa visualização em qualquer dispositivo.
+💅 Design responsivo com Bootstrap 5, garantindo ótima visualização em qualquer dispositivo.
 
-🧩 Como usar
+🧩 Como Usar
 
-Abra o arquivo index.html no seu navegador.
+Abra o arquivo index.html no navegador.
 
-Use o menu superior para navegar entre as páginas (SPA ativa automaticamente).
+Navegue pelo menu superior (SPA ativo automaticamente).
 
-Explore os projetos, cadastre-se e leia as notícias!
+Explore projetos, cadastre-se e leia as notícias!
 
 A navegação é feita sem recarregar a página inteira — apenas o conteúdo principal muda. 🚀
 
-🎨 Tecnologias utilizadas
+🎨 Tecnologias Utilizadas
 
 HTML5 – Estrutura semântica e acessível.
 
@@ -79,5 +75,4 @@ Se fosse uma ONG real, poderíamos nos conectar por aqui:
 
 🌐 Acesse o site: https://gabrieldev26-frontend.github.io/site-ong/index.html
 
-💛 Muito obrigado por visitar nosso projeto!
-Esperamos que este site inspire você a se envolver e ajudar os animais. 🐶🐱🐢🐦
+💛 Muito obrigado por visitar nosso projeto! Esperamos que este site inspire você a se envolver e ajudar os animais. 🐶🐱🐢🐦

@@ -63,12 +63,18 @@ Bootstrap 5 – Componentes prontos e grid flexível.
 JavaScript (SPA) – Interatividade e carregamento dinâmico das páginas.
 
 🗂️ Estrutura do Projeto
+
 📦 ONG-Acolhe-Pet
-├── 📁 assets/           → Imagens e ícones
-├── 📁 css/              → Arquivos de estilo (CSS)
-├── 📁 js/               → Scripts e lógica SPA
-├── 📄 index.html        → Página inicial
-└── 📄 README.md         → Documentação do projeto
+├── 📁 css/             → Arquivos de estilo (CSS)
+├── 📁 imagens/         → Imagens e ícones utilizados no site
+├── 📁 js/              → Scripts e lógica da aplicação SPA
+├── 📄 cadastro.html    → Página de cadastro de voluntários
+├── 📄 index.html       → Página inicial da ONG
+├── 📄 noticias.html    → Página com notícias e dicas sobre animais
+├── 📄 projetos.html    → Página com informações sobre projetos e ações sociais
+├── 📄 README.md        → Documentação do projeto
+└── ⚙️ .gitattributes   → Configuração de atributos do Git
+
 
 💻 Instalação e Execução
 

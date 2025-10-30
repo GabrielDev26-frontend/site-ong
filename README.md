@@ -1,10 +1,11 @@
 🐾 ONG Acolhe Pet
 
-Bem-vindo ao site da ONG Acolhe Pet 💚! Este é um projeto acadêmico criado para mostrar como uma ONG fictícia poderia ajudar animais, promover resgates e incentivar a adoção consciente.
+Bem-vindo ao site da ONG Acolhe Pet 💚!
+Este é um projeto acadêmico desenvolvido para demonstrar como uma ONG fictícia poderia atuar na proteção animal, promovendo resgates, adoções conscientes e ações de voluntariado.
 
 🌟 Objetivo do Projeto
 
-Nosso site foi pensado para que qualquer pessoa possa:
+O site foi criado para que qualquer pessoa possa:
 
 🐶 Conhecer a ONG e entender nossa missão.
 
@@ -31,29 +32,25 @@ Imagens otimizadas e leves, garantindo carregamento rápido.
 
 Suporte a diferentes formatos e compatibilidade entre navegadores.
 
-Banner, fotos de projetos e formulários ilustrativos cuidadosamente selecionados.
+Banners, fotos de projetos e formulários cuidadosamente selecionados.
 
 🚀 Funcionalidades e Interatividade
 
-✅ SPA (Single Page Application) em JavaScript puro — apenas o conteúdo principal muda, tornando o site rápido e fluido.
-
-🧭 Menu de navegação simples, com atualização via hash.
-
-🧾 Formulário com validação e máscaras de entrada (CPF, telefone e CEP).
-
+✅ SPA (Single Page Application) — apenas o conteúdo principal muda, tornando o site rápido e fluido.
+🧭 Menu de navegação dinâmico, com atualização via hash.
+🧾 Formulário com validação e máscaras (CPF, telefone e CEP).
 📰 Notícias dinâmicas (via API ou JSON local).
-
-💅 Design responsivo com Bootstrap 5, garantindo ótima visualização em qualquer dispositivo.
+🖼️ Design responsivo com Bootstrap 5, garantindo ótima visualização em qualquer dispositivo.
 
 🧩 Como Usar
 
 Abra o arquivo index.html no navegador.
 
-Navegue pelo menu superior (SPA ativo automaticamente).
+Navegue pelo menu superior — o modo SPA é ativado automaticamente.
 
-Explore projetos, cadastre-se e leia as notícias!
+Explore os projetos, cadastre-se como voluntário e leia as notícias!
 
-A navegação é feita sem recarregar a página inteira — apenas o conteúdo principal muda. 🚀
+A navegação ocorre sem recarregar a página inteira — apenas o conteúdo principal é atualizado. ⚡
 
 🎨 Tecnologias Utilizadas
 
@@ -61,9 +58,70 @@ HTML5 – Estrutura semântica e acessível.
 
 CSS3 – Layout responsivo e estilização moderna.
 
-Bootstrap 5 – Componentes e grid flexível.
+Bootstrap 5 – Componentes prontos e grid flexível.
 
-JavaScript (SPA) – Interatividade e carregamento dinâmico de páginas.
+JavaScript (SPA) – Interatividade e carregamento dinâmico das páginas.
+
+🗂️ Estrutura do Projeto
+📦 ONG-Acolhe-Pet
+├── 📁 assets/           → Imagens e ícones
+├── 📁 css/              → Arquivos de estilo (CSS)
+├── 📁 js/               → Scripts e lógica SPA
+├── 📄 index.html        → Página inicial
+└── 📄 README.md         → Documentação do projeto
+
+💻 Instalação e Execução
+
+Para visualizar localmente:
+
+git clone https://github.com/gabrieldev26-frontend/site-ong.git
+cd site-ong
+start index.html
+
+
+Ou acesse diretamente a versão publicada:
+🌐 Acesse o site
+
+🚢 Deploy
+
+O projeto foi hospedado via GitHub Pages.
+Para publicar alterações:
+
+git add .
+git commit -m "Atualização do site"
+git push origin main
+
+
+As mudanças serão refletidas automaticamente no link público após o push.
+
+🤝 Contribuição
+
+Contribuições são bem-vindas!
+Siga estas etapas:
+
+Faça um fork do repositório.
+
+Crie uma branch com a nova feature:
+
+git checkout -b minha-feature
+
+
+Faça o commit das mudanças:
+
+git commit -m "Adiciona nova feature"
+
+
+Envie para o repositório remoto:
+
+git push origin minha-feature
+
+
+Abra um Pull Request para análise.
+
+📜 Licença
+
+Este projeto está licenciado sob a licença MIT.
+Sinta-se livre para usar, modificar e compartilhar, desde que mantenha os créditos do autor.
 
 💌 Contato
 
@@ -73,6 +131,7 @@ Se fosse uma ONG real, poderíamos nos conectar por aqui:
 
 📸 Instagram: @acolhepet
 
-🌐 Acesse o site: https://gabrieldev26-frontend.github.io/site-ong/index.html
+🌐 Site: https://gabrieldev26-frontend.github.io/site-ong/index.html
 
-💛 Muito obrigado por visitar nosso projeto! Esperamos que este site inspire você a se envolver e ajudar os animais. 🐶🐱🐢🐦
+💛 Muito obrigado por visitar nosso projeto!
+Esperamos que este site inspire você a se envolver e ajudar os animais. 🐶🐱🐢🐦
